@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class DBManager {
     private static final ArrayList<Music> musics = new ArrayList<>();
+    private static Long id = 6L;
 
     static {
         musics.add(new Music(1L, "Music1", "Singer1", 188));
@@ -17,5 +18,11 @@ public class DBManager {
 
     public static ArrayList<Music> getMusics() {
         return musics;
+    }
+
+    public static void addMusic(Music music) {
+        music.setId(id);
+        id++;
+        musics.add(music);
     }
 }

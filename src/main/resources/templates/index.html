@@ -33,5 +33,31 @@
     </div>
 <!--ArrayList<Music> musics = (ArrayList<Music>) request.getAttribute("musics")-->
 <!--for(Music muz : musics) -->
+
+<form action="/add-music" method="post">
+    NAME: <input type="text" name="name">
+    <br>
+    <br>
+    AUTHOR: <input type="text" name="author">
+    <br>
+    <br>
+    DURATION: <input type="number" name="DURATION">
+    <br>
+    <br>
+    <button>ADD MUSIC</button>
+</form>
+
+<form action="/add-music-v2" method="post">
+    NAME: <input type="text" name="music-name">
+    <br>
+    <br>
+    AUTHOR: <input type="text" name="music-author">
+    <br>
+    <br>
+    DURATION: <input type="number" name="music-duration">
+    <br>
+    <br>
+    <button>ADD MUSIC</button>
+</form>
 </body>
 </html>
