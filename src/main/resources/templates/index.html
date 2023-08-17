@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>MuscGYM</title>
@@ -10,15 +10,28 @@
         padding: 0;
         margin: 0;
         box-sizing: border-box;
-        background-image: url("https://wallpaperaccess.com/full/1454800.jpg");
-        background-repeat: no-repeat;
-        background-size: cover;
     }
     a:hover {
         background-color: #cdda1c;
     }
+
+    .forh3 {
+        margin-top: 100px;
+    }
 </style>
-    <h1 style="text-align: center;margin: 0 auto; font-size: 72px; color: #FFF;">Hello Main page</h1>
+    <h1 style="text-align: center;margin: 0 auto; font-size: 72px; color: #000;">Hello Main page</h1>
     <a style="text-decoration: none; font-size: 32px; color: #FFF; background-color: #c3a30b; padding: 30px; border-radius: 12px; transition: all .3s linear;" href="/about">ABOUT PAGE</a>
+
+    <div class="forh3">
+    <h3 style="background-color: bisque;" th:each = "muz : ${musics}">
+        <span th:text="${muz.id}"></span> -
+        <span th:text="${muz.name}"></span> -
+        <span th:text="${muz.name}"></span> by
+        "<span th:text="${muz.author}"></span>" with duration :
+        <span th:text="${muz.duration}"></span> seconds
+    </h3>
+    </div>
+<!--ArrayList<Music> musics = (ArrayList<Music>) request.getAttribute("musics")-->
+<!--for(Music muz : musics) -->
 </body>
 </html>
