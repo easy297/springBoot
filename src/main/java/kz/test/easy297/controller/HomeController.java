@@ -18,11 +18,6 @@ public class HomeController {
         return "index";
     }
 
-    @GetMapping(value = "/about")
-    public String aboutPage() {
-        return "about";
-    }
-
     @PostMapping(value = "/add-music")
     public String addMusic(Music music) {
         DBManager.addMusic(music);
@@ -40,5 +35,13 @@ public class HomeController {
         music.setDuration(duration);
         DBManager.addMusic(music);
         return "redirect:/"; // response.sendRedirect("/")
+    }
+
+    @GetMapping(value = "/music-details")
+    public String getMusic(@RequestParam(name = "musicId") int id,
+                           Model model){
+        Music music = DBManager.getMusic(id);
+        model.addAttribute("song", music);
+        return "details";
     }
 }

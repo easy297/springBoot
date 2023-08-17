@@ -25,4 +25,8 @@ public class DBManager {
         id++;
         musics.add(music);
     }
+
+    public static Music getMusic(int id) {
+        return musics.stream().filter(music -> music.getId() == id).findFirst().orElse(null);
+    }
 }
