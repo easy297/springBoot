@@ -3,61 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <title>MuscGYM</title>
+    <link rel="stylesheet" th:href="@{'/css/bootstrap.min.css'}">
+    <script th:src="@{'/js/bootstrap.bundle.js'}"></script>
 </head>
 <body>
-<style>
-    body {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-    }
-    a:hover {
-        background-color: #cdda1c;
-    }
 
-    .forh3 {
-        margin-top: 100px;
-    }
-</style>
-    <h1 style="text-align: center;margin: 0 auto; font-size: 72px; color: #000;">Hello Main page</h1>
-    <a style="text-decoration: none; font-size: 32px; color: #FFF; background-color: #c3a30b; padding: 30px; border-radius: 12px; transition: all .3s linear;" href="/about">ABOUT PAGE</a>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-6 mx-auto">
+                <form action="/add-music" method="post">
+                    <div class="row">
+                        <div class="col-12">
+                            <label>NAME</label>
+                        </div>
+                    </div>
 
-    <div class="forh3">
-    <h3 style="background-color: bisque;" th:each = "muz : ${musics}">
-        <span th:text="${muz.id}"></span> -
-        <span th:text="${muz.name}"></span> -
-        <span th:text="${muz.name}"></span> by
-        "<span th:text="${muz.author}"></span>" with duration :
-        <span th:text="${muz.duration}"></span> seconds
-    </h3>
+                    <div class="row mt-2">
+                        <div class="col-12">
+                            <input type="text" name="name" class="form-control" placeholder="Name" required>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <label>AUTHOR</label>
+                        </div>
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-12">
+                            <input type="text" name="author" class="form-control" placeholder="Author" required>
+                        </div>
+                    </div>
+
+
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <label>DURATION</label>
+                        </div>
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-12">
+                            <input type="number" name="author" class="form-control" placeholder="Duration" required>
+                        </div>
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-12">
+                            <button class="btn btn-success">ADD MUSIC</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-<!--ArrayList<Music> musics = (ArrayList<Music>) request.getAttribute("musics")-->
-<!--for(Music muz : musics) -->
 
-<form action="/add-music" method="post">
-    NAME: <input type="text" name="name">
-    <br>
-    <br>
-    AUTHOR: <input type="text" name="author">
-    <br>
-    <br>
-    DURATION: <input type="number" name="DURATION">
-    <br>
-    <br>
-    <button>ADD MUSIC</button>
-</form>
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-striped">
+                    <thead>
 
-<form action="/add-music-v2" method="post">
-    NAME: <input type="text" name="music-name">
-    <br>
-    <br>
-    AUTHOR: <input type="text" name="music-author">
-    <br>
-    <br>
-    DURATION: <input type="number" name="music-duration">
-    <br>
-    <br>
-    <button>ADD MUSIC</button>
-</form>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Author</th>
+                            <th>Duration</th>
+                            <th style="width: 10%">Details</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+                        <tr th:each = "muz : ${musics}">
+                            <td th:text = "${muz.id}"></td>
+                            <td th:text = "${muz.name}"></td>
+                            <td th:text = "${muz.author}"></td>
+                            <td th:text = "${muz.duration}"></td>
+                            <td>
+                                <button class="btn btn-primary btn-sm"></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
