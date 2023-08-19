@@ -5,3 +5,4 @@
 - DataBase manager
 - Auto Object creator (lombok)
 - Thymeleaf to create dynamic links and action methods
+- Thymeleaf Layout Dialect (add-on) to work effective with html
