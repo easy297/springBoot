@@ -4,6 +4,7 @@ import kz.test.easy297.db.Music;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -44,4 +45,18 @@ public class HomeController {
         model.addAttribute("song", music);
         return "details";
     }
+
+    @GetMapping(value = "/add-music")
+    public String addMusicPage(Model model) {
+        return "addMusic";
+    }
+
+    @GetMapping(value = "/details/{musicId}")
+    public String musicDetails(@PathVariable(name = "musicId") int id,
+                               Model model) {
+        Music music = DBManager.getMusic(id);
+        model.addAttribute("song", music);
+        return "details";
+    }
+
 }

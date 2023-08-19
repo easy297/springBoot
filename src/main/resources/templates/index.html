@@ -30,7 +30,7 @@
                             <td th:text = "${muz.author}"></td>
                             <td th:text = "${muz.duration}"></td>
                             <td>
-                                <a th:href="@{'/music-details?musicId=' + ${muz.id}}" class="btn btn-primary btn-sm">DETAILS</a>
+                                <a th:href="@{'details' + ${muz.id}}" class="btn btn-primary btn-sm">DETAILS</a>
                             </td>
                         </tr>
                     </tbody>
