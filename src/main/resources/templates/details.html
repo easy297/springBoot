@@ -1,73 +1,61 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:insert="head.html">
-</head>
-<body>
-        <div th:insert="navbar.html">
-        </div>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="main_layout.html">
 
-
-    <div class="container mt-5" style="min-height: 70vh;">
-        <div class="row">
-            <div class="col-3" th:insert="sidebar.html"></div>
-            <div class="col-9 mx-auto">
-                <div class="col-8 mx-auto">
-                    <form action="/save-music" method="post" th:if = "${song != null}">
-                        <div class="row">
-                            <div class="col-12">
-                                <label>NAME</label>
-                            </div>
-                        </div>
-
-                        <div class="row mt-2">
-                            <div class="col-12">
-                                <input type="text" name="name" class="form-control" placeholder="Name" required th:value="${song.name}">
-                            </div>
-                        </div>
-
-                        <div class="row mt-3">
-                            <div class="col-12">
-                                <label>AUTHOR</label>
-                            </div>
-                        </div>
-
-                        <div class="row mt-2">
-                            <div class="col-12">
-                                <input type="text" name="author"
-                                       class="form-control"
-                                       placeholder="Author" required
-                                       th:value="${song.author}"
-                                >
-                            </div>
-                        </div>
-
-
-                        <div class="row mt-3">
-                            <div class="col-12">
-                                <label>DURATION</label>
-                            </div>
-                        </div>
-
-                        <div class="row mt-2">
-                            <div class="col-12">
-                                <input type="number" name="author" class="form-control"
-                                       placeholder="Duration"
-                                       required th:value="${song.duration}">
-                            </div>
-                        </div>
-
-                        <div class="row mt-2">
-                            <div class="col-12">
-                                <button class="btn btn-success">SAVE MUSIC</button>
-                            </div>
-                        </div>
-                    </form>
-                    <h4 th:if = "${song == null}" class="text-center">MUSIC NOT FOUND</h4>
-
+<div layout:fragment="siteContent">
+    <div class="col-8 mx-auto">
+        <form action="/save-music" method="post" th:if = "${song != null}">
+            <div class="row">
+                <div class="col-12">
+                    <label>NAME</label>
                 </div>
             </div>
-        </div>
+
+            <div class="row mt-2">
+                <div class="col-12">
+                    <input type="text" name="name" class="form-control" placeholder="Name" required th:value="${song.name}">
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-12">
+                    <label>AUTHOR</label>
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-12">
+                    <input type="text" name="author"
+                           class="form-control"
+                           placeholder="Author" required
+                           th:value="${song.author}"
+                    >
+                </div>
+            </div>
+
+
+            <div class="row mt-3">
+                <div class="col-12">
+                    <label>DURATION</label>
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-12">
+                    <input type="number" name="author" class="form-control"
+                           placeholder="Duration"
+                           required th:value="${song.duration}">
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-12">
+                    <button class="btn btn-success">SAVE MUSIC</button>
+                </div>
+            </div>
+        </form>
+        <h4 th:if = "${song == null}" class="text-center">MUSIC NOT FOUND</h4>
     </div>
-        <div th:insert="footer.html"></div>
-</body>
+</div>
 </html>

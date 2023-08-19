@@ -24,19 +24,19 @@ public class HomeController {
         DBManager.addMusic(music);
         return "redirect:/"; // response.sendRedirect("/")
     }
-    @PostMapping(value = "/add-music-v2")
-    public String addMusicV2(
-        @RequestParam(name = "music-name") String name,
-        @RequestParam(name = "music-author") String author,
-        @RequestParam(name = "music-duration") int duration
-    ){
-        Music music = new Music();
-        music.setName(name);
-        music.setAuthor(author);
-        music.setDuration(duration);
-        DBManager.addMusic(music);
-        return "redirect:/"; // response.sendRedirect("/")
-    }
+//    @PostMapping(value = "/add-music-v2")
+//    public String addMusicV2(
+//        @RequestParam(name = "music-name") String name,
+//        @RequestParam(name = "music-author") String author,
+//        @RequestParam(name = "music-duration") int duration
+//    ){
+//        Music music = new Music();
+//        music.setName(name);
+//        music.setAuthor(author);
+//        music.setDuration(duration);
+//        DBManager.addMusic(music);
+//        return "redirect:/"; // response.sendRedirect("/")
+//    }
 
     @GetMapping(value = "/music-details")
     public String getMusic(@RequestParam(name = "musicId") int id,

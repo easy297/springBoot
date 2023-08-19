@@ -9,11 +9,11 @@ public class DBManager {
     private static Long id = 6L;
 
     static {
-        musics.add(new Music(1L, "Music1", "Singer1", 188));
-        musics.add(new Music(2L, "Music2", "Singer2", 189));
-        musics.add(new Music(3L, "Music3", "Singer3", 168));
-        musics.add(new Music(4L, "Music4", "Singer4", 192));
-        musics.add(new Music(5L, "Music5", "Singer5", 230));
+        musics.add(new Music(1L, "Runaway", "Kanye West", 548));
+        musics.add(new Music(2L, "fukumean", "Gunna", 125));
+        musics.add(new Music(3L, "MY EYES", "Travis Scott", 251));
+        musics.add(new Music(4L, "Solo", "Future", 246));
+        musics.add(new Music(5L, "Sprinter", "Dave, Central Cee", 229));
     }
 
     public static ArrayList<Music> getMusics() {
