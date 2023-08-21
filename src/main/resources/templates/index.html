@@ -18,7 +18,8 @@
             </thead>
 
             <tbody>
-            <tr th:each = "muz : ${musics}">
+<!--            <tr th:each = "muz : ${musics}" th:style="${muz.duration >= 180?'color: green;':'color: red;'}">-->
+            <tr th:each = "muz : ${musics}" th:class="${muz.duration >= 180?'text-primary':'text-secondary'}">
                 <td th:text = "${muz.id}"></td>
                 <td th:text = "${muz.name}"></td>
                 <td th:text = "${muz.author}"></td>
