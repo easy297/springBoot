@@ -1,5 +1,16 @@
 ### Test project on SPRING
 
+ScreenShots:
+## Main page
+![main-page](./screenshots/Screenshot%202023-08-22%20185848.png)
+
+## AddMusic page
+![add-music](./screenshots/Screenshot%202023-08-22%20185946.png)
+
+## DeleteMusic modal window
+![delete-music](./screenshots/Screenshot%202023-08-22%20190010.png)
+
+
 ## Currently added:
 - Styles with bootstrap
 - DataBase manager
