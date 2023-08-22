@@ -6,6 +6,7 @@
 <div layout:fragment="siteContent">
     <div class="col-8 mx-auto">
         <form action="/save-music" method="post" th:if = "${song != null}">
+            <input type="hidden" name="id" th:value="${song.id}">
             <div class="row">
                 <div class="col-12">
                     <label>NAME</label>
@@ -52,9 +53,32 @@
             <div class="row mt-2">
                 <div class="col-12">
                     <button class="btn btn-success">SAVE MUSIC</button>
+                    <button type="button" class="btn btn-danger ms-2 " data-bs-toggle="modal" data-bs-target="#deleteModal">DELETE MUSIC</button>
                 </div>
             </div>
         </form>
+        <!-- Modal -->
+        <div class="modal fade" id="deleteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+             aria-labelledby="staticBackdropLabel" aria-hidden="true" th:if = "${song != null}">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form th:action="@{/delete-music}" method="post">
+                        <input type="hidden" name="id" th:value="${song.id}">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirm Delete</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <h3 class="text-center">ARE YOU SURE?</h3>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">NO</button>
+                            <button class="btn btn-danger">YES</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
         <h4 th:if = "${song == null}" class="text-center">MUSIC NOT FOUND</h4>
     </div>
 </div>
