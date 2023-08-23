@@ -24,7 +24,8 @@ public class HomeController {
     private MusicRepository musicRepository;
     @GetMapping(value="/")
     public String indexPage(Model model) {
-        List<MusicModel> musicModelList = musicRepository.findAll();
+//        List<MusicModel> musicModelList = musicRepository.findAll();
+        List<MusicModel> musicModelList = musicRepository.findAllByDurationGreaterThan(0);
         model.addAttribute("musics", musicModelList);
         return "index";
     }
@@ -34,20 +35,6 @@ public class HomeController {
         musicRepository.save(music);
         return "redirect:/"; // response.sendRedirect("/")
     }
-//    @PostMapping(value = "/add-music-v2")
-//    public String addMusicV2(
-//        @RequestParam(name = "music-name") String name,
-//        @RequestParam(name = "music-author") String author,
-//        @RequestParam(name = "music-duration") int duration
-//    ){
-//        Music music = new Music();
-//        music.setName(name);
-//        music.setAuthor(author);
-//        music.setDuration(duration);
-//        DBManager.addMusic(music);
-//        return "redirect:/"; // response.sendRedirect("/")
-//    }
-
     @GetMapping(value = "/music-details")
     public String getMusic(@RequestParam(name = "musicId") int id,
                            Model model){
